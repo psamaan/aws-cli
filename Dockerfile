@@ -1,5 +1,6 @@
 FROM alpine:3.6
 RUN apk -v --update add \
+        gawk\
         openssh-keygen \
         python \
         py-pip \
