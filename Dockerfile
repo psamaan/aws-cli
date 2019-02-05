@@ -1,6 +1,6 @@
 FROM alpine:3.6
 RUN apk -v --update add \
-        openssh-keygen
+        openssh-keygen \
         python \
         py-pip \
         groff \
