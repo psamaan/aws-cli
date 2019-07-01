@@ -11,7 +11,7 @@ RUN apk -v --update add \
         gettext \
         libintl \
         && \
-    mv /usr/bin/envsubst /usr/local/sbin/envsubst \
+    mv /usr/bin/envsubst /usr/local/sbin/envsubst && \
     pip install --upgrade awscli==1.16.97 s3cmd==2.0.1 python-magic && \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
