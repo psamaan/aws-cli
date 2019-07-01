@@ -8,13 +8,18 @@ RUN apk -v --update add \
         groff \
         less \
         mailcap \
-        gettext \
-        libintl \
         && \
     mv /usr/bin/envsubst /usr/local/sbin/envsubst && \
     pip install --upgrade awscli==1.16.97 s3cmd==2.0.1 python-magic && \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
+
+RUN set -x && \
+    apk add --update "libintl" && \
+    apk add --virtual build_deps "gettext" &&  \
+    cp /usr/bin/envsubst /usr/local/bin/envsubst && \
+    apk del build_deps
+
 VOLUME /root/.aws
 VOLUME /project
 WORKDIR /project
