@@ -20,8 +20,9 @@ RUN set -x && \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
     apk del build_deps
     
-RUN cd /usr/local/bin && \
-    curl https://github.com/kubernetes/kops/releases/download/1.14.0-alpha.3/kops-linux-amd64
+RUN curl https://github.com/kubernetes/kops/releases/download/1.14.0-alpha.3/kops-linux-amd64 && \
+    mv kops-linux-amd64 /usr/local/bin/kops && \
+    chmod +x /usr/local/bin/kops
 
 VOLUME /root/.aws
 VOLUME /project
