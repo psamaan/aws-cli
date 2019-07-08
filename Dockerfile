@@ -21,7 +21,7 @@ RUN set -x && \
     apk del build_deps
     
 RUN curl https://github.com/kubernetes/kops/releases/download/1.14.0-alpha.3/kops-linux-amd64 && \
-    mv kops-linux-amd64 /usr/local/bin/kops && \
+    mv ./kops-linux-amd64 /usr/local/bin/kops && \
     chmod +x /usr/local/bin/kops
 
 VOLUME /root/.aws
